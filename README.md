@@ -50,7 +50,7 @@ Abre el archivo .ipynb en Google Colab o Jupyter Notebook.
 
 - [smuke123](https://github.com/smuke123)
 - [Jasu17](https://github.com/Jasu17)
--
+- [ValeriaBarreto](https://github.com/ValeriaBarreto)
 
 
 ## 📩 Cómo contribuir
