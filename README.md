@@ -44,7 +44,16 @@ Accede a la carpeta del proyecto:
   cd DismetWebPage
 ```
 
-Abre el archivo .ipynb en Google Colab o Jupyter Notebook.
+Descarga los archivos necesarios:
+
+```bash
+  npm install
+```
+Disfruta de la pagina:
+
+```bash
+  npm start
+```
 
 ## 👥 Autores
 
