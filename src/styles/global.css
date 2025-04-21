@@ -1,0 +1,19 @@
+/* Variables de la paleta */
+:root {
+    --primary: #19535F;
+    --secondary: #0B7A75;
+    --accent: #D7C9AA;
+    --alert: #7B2D26;
+    --bg: #F0F3F5;
+  }
+  
+  /* Reset básico */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: var(--bg);
+  }

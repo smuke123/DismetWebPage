@@ -11,7 +11,7 @@ const CartTab = () => {
         dispatch(toggleStatusTab());
     }
   return (
-    <div className={`fixed top-0 right-0 bg-gray-700 shadow-2xl w-96 h-full grid grid-rows-[60px_1fr_60px] 
+    <div className={`fixed top-0 right-0 bg-primary shadow-2xl w-96 h-full grid grid-rows-[60px_1fr_60px] 
     transform transition-transform duration-500
     ${statusTab === false ? "translate-x-full" : ""}
     `}>
@@ -22,8 +22,8 @@ const CartTab = () => {
             )}
         </div>
         <div className='grid grid-cols-2'>
-            <button className='bg-black text-white' onClick={handleCloseTabCart}>CLOSE</button>
-            <button className='bg-amber-600 text-white'>CHECKOUT</button>
+            <button className='bg-accent text-white' onClick={handleCloseTabCart}>CLOSE</button>
+            <button className='bg-secondary text-white'>CHECKOUT</button>
         </div>
     </div>
   )
