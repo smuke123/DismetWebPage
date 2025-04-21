@@ -10,7 +10,7 @@ const TopBar = () => {
           <li className="flex">
             <Icon />
             <Link className="mr-2 text-sm capitalize pr-4 pl-4">
-              Get Express Delivery All over Nepal
+              Get Express Delivery All over Colombia
             </Link>
           </li>
           <li>

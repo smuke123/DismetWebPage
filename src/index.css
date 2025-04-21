@@ -3,19 +3,22 @@
 :root {
   --black-color: #000000;
   --white-color: #ffffff;
-  --yellow-color: #ffa832;
+  --yellow-color: #2c6e49;
   --site-text-color: #666666;
   --site-heading-color: #181818;
   --site-border-color: #ececec;
   --site-wc-price: rgba(24, 24, 24, 0.8);
   --site-wc-price-old: rgba(24, 24, 24, 0.5);
-  --site-header-border-color: rgba(102, 102, 102, 0.15);
+  --site-header-border-color: #2c6e49;
   --dropdown-secondary-color: rgba(102, 102, 102, 0.7);
   --dropdown-grey-color: rgba(102, 102, 102, 0.5);
   --site-secondary-button-bg: #222222;
   --page-header-bg-color: #f6f6f6;
   --page-header-text-color: #777777;
   --page-header-heading-color: #111111;
+  --primary: #fefee3;
+  --secondary: #4c956c;
+  --accent: #2c6e49;
   --page-header-font-size: 60px;
   --site-font-size: 16px;
   --heading-font-weight: 500;
@@ -34,13 +37,15 @@ body {
 }
 
 .header {
-  background-color: var(--white-color);
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 .link-hover:hover {
   color: var(--yellow-color);
 }
 
 .header-text {
+  color: var(--accent);
   font-size: var(--page-header-font-size);
   font-weight: 700;
 }
