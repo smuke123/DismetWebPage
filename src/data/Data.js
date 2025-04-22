@@ -74,7 +74,7 @@ export const products = [
     brand: "Old Brand",
     title: "Natural Wood Dining Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.00",
+    price: "129.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -85,7 +85,7 @@ export const products = [
     brand: "Latest Brand",
     title: "Dining Chair",
     short_description: "Lorem ipsum dolor",
-    price: "1209.00",
+    price: "1.209.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -96,7 +96,7 @@ export const products = [
     brand: "Latest Brand",
     title: "Best Chair",
     short_description: "Lorem ipsum dolor",
-    price: "529.00",
+    price: "529.000.",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -107,7 +107,7 @@ export const products = [
     brand: "Latest Brand",
     title: "Natural Wood Chair",
     short_description: "Lorem ipsum dolor",
-    price: "900.00",
+    price: "900.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -118,7 +118,7 @@ export const products = [
     brand: "Latest Brand",
     title: "Sitting Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.00",
+    price: "129.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -129,7 +129,7 @@ export const products = [
     brand: "Latest Brand",
     title: "Natural Wood Dining Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.00",
+    price: "129.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -141,7 +141,7 @@ export const products = [
     brand: "Latest Brand",
     title: "Beautiful Chair",
     short_description: "Lorem ipsum dolor",
-    price: "1129.00",
+    price: "1.129.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -152,7 +152,7 @@ export const products = [
     brand: "Indian",
     title: "Chair set",
     short_description: "Lorem ipsum dolor",
-    price: "129.00",
+    price: "129.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -163,7 +163,7 @@ export const products = [
     brand: "Indian",
     title: "Best One",
     short_description: "Lorem ipsum dolor",
-    price: "129.00",
+    price: "129.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -174,7 +174,7 @@ export const products = [
     brand: "Indian",
     title: "Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.00",
+    price: "129.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -185,7 +185,7 @@ export const products = [
     brand: "Indian",
     title: "Old Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.00",
+    price: "129.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -196,7 +196,7 @@ export const products = [
     brand: "Indian",
     title: "New Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.00",
+    price: "129.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -207,7 +207,7 @@ export const products = [
     brand: "Indian",
     title: "New Brand Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.00",
+    price: "129.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -218,7 +218,7 @@ export const products = [
     brand: "Indian",
     title: "Stylish Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.00",
+    price: "129.000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -301,29 +301,29 @@ export const brands = [
 export const footer = [
   {
     id: 1,
-    header: "Our Store",
+    header: "Nuestra Tienda",
     content1:
-      "Miniture is one of the biggest international fashion companies, one of the world’s largest distribution groups.",
+      "Dismet es una compañía que desea complacer a sus clientes con una nueva marca de innovación y comodidad para tu hogar.",
   },
   {
     id: 2,
-    header: "Quick Links",
-    content1: "My Account",
-    content2: "Shopping Cart",
-    content3: "Wishlist",
-    content4: "Product Compare",
+    header: "Links",
+    content1: "Nuestras cuentas",
+    content2: "Carro de compras",
+    content3: "Lista de deseos",
+    content4: "Comparación de productos",
   },
   {
     id: 3,
-    header: "Information",
-    content1: "Privacy Policy",
-    content2: "Refund Policy",
-    content3: "Shipping & Return",
-    content4: "Terms & Condition",
+    header: "Información",
+    content1: "política de privacidad",
+    content2: "política de reembolso",
+    content3: "Envío & Devolución",
+    content4: "Términos & Condiciones",
   },
   {
     id: 4,
-    header: "Let's Get In Touch",
-    content1: "Sign Up For Our newsletter and receive 10% off your",
+    header: "Comunícate con nosotros",
+    content1: "Suscríbete a nuestro boletín y recibe un 10% de descuento en tu carro",
   },
 ];

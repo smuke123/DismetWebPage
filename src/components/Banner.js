@@ -26,15 +26,15 @@ const Banner = () => {
               <div className="text-white mr-4 common-hover text-4xl rounded-3xl h-12 w-20 grid place-items-center">
                 <MdOutlineChair />
               </div>
-              Elevate Your Lifestyle
+              Disfruta de tu comodidad
             </button>
-            <p>with Our Furniture</p>
-            Creations
+            <p>con nuestros productos.</p>
+
             <Link
               to="/shop"
               className="text-white common-hover text-4xl rounded-full ml-4  px-7 py-2"
             >
-              Shop Now
+              Compra ahora
             </Link>
           </div>
         </div>

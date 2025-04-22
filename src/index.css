@@ -179,7 +179,7 @@ body {
   background-color: var(--yellow-color);
 }
 .bg-img {
-  background-image: url("/public/images/miniture/page_header.jpeg");
+  background-image: url("/public/images/miniture/SalonPrincipal.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
