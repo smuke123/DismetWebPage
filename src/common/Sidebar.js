@@ -29,7 +29,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
         className="fixed top-0 right-0 h-full bg-white shadow-lg transition-transform duration-300 ease-in-out overflow-y-auto"
       >
         <div className="border-b mb-4">
-          <h1 className="text-3xl p-4">Your Cart</h1>
+          <h1 className="text-3xl p-4">Tu carro</h1>
         </div>
 
         <div className="p-4">
@@ -39,7 +39,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
 
           {cartProducts.length === 0 ? (
             <div className="text-3xl font-bold uppercase">
-              Your Cart has No Product
+              Tu carro no tiene productos.
             </div>
           ) : (
             <div>
@@ -63,7 +63,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
 
                   <div>
                     <p>{item.price}</p>
-                    <p>Qty: {item.quantity}</p>
+                    <p>Ctd: {item.quantity}</p>
                   </div>
                 </div>
               ))}
@@ -73,7 +73,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                   Sub Total : <span>${totalAmount}</span>
                 </h2>
                 <div className="ml-4 bg-rose-100 rounded-sm py-3 px-6 text-black">
-                  <Link to="/cart">View Cart</Link>
+                  <Link to="/cart">Mirar el carro</Link>
                 </div>
               </div>
             </div>

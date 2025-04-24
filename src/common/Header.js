@@ -36,7 +36,7 @@ const Header = () => {
           <div>
             <div class="logo">Dismet</div>
           </div>
-          <div className="md:flex bg-secondary flex-wrap text-base py-3">
+          <div className="md:flex flex-wrap text-base py-3">
             {navbar.map((nav, key) => (
               <div key={key} className="mr-5">
                 <Link

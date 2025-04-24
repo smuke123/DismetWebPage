@@ -15,7 +15,7 @@ const Arrived = () => {
               Etiquetanos @ en tus fotos de instagram para salir en esta sección.
             </p>
             <Link
-              className="border rounded-full px-4 py-2"
+              className="border bg-accent rounded-full text-white px-4 py-2"
               to={"instagram.com"}
             >
               Visita nuestro instagram
