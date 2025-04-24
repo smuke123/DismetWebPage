@@ -17,7 +17,7 @@ const Offer = () => {
                   />
                 </div>
                 <div>
-                  <p className="bg-white p-4 text-xl rounded-full absolute top-0 -right-6">
+                  <p className="bg-gray-900 p-4 text-xl text-white rounded-full absolute top-0 -right-6">
                     {data.title}
                   </p>
                   <h1 className="bg-white px-6 py-6 text-3xl absolute top-14 -right-6 rounded-full">

@@ -33,6 +33,7 @@
 }
 
 body {
+  background-color: white;
   font-family: var(--site-main-font);
 }
 
@@ -96,7 +97,7 @@ body {
 }
 .slick-next,
 .slick-prev {
-  color: #000 !important;
+  color: var(--accent) !important;
   background-color: #fff !important;
   width: 2rem !important;
   height: 2rem !important;

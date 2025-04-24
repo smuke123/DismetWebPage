@@ -10,16 +10,15 @@ const Arrived = () => {
         <Heading heading={"Just Arrived"} />
         <div className="flex items-center mt-10">
           <div className="w-2/3">
-            <h1 className="font-semibold text-3xl">Instagram Shop</h1>
+            <h1 className="font-semibold text-3xl">Tienda de Instagram</h1>
             <p className="my-4">
-              Tag @ miniture in your Instagram photos for a chance to be
-              featured here.
+              Etiquetanos @ en tus fotos de instagram para salir en esta sección.
             </p>
             <Link
               className="border rounded-full px-4 py-2"
               to={"instagram.com"}
             >
-              Visit Our Instagram
+              Visita nuestro instagram
             </Link>
           </div>
           <div className="grid grid-cols-3 gap-4 mb-8">

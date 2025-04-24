@@ -20,7 +20,7 @@ const Shop = () => {
   const [filters, setFilters] = useState({
     categories: [],
     brands: [],
-    priceRange: [0, 1500],
+    priceRange: [0, 1500000],
   });
 
   const categoryList = Array.from(
@@ -76,11 +76,11 @@ const Shop = () => {
               </div>
 
               <div className="my-4">
-                <h1 className="mb-3 text-3xl font-semibold">By Price</h1>
+                <h1 className="mb-3 text-3xl font-semibold">Por precio</h1>
                 <div>
                   <Slider
                     min={0}
-                    max={1500}
+                    max={1500000}
                     range
                     defaultValue={filters.priceRange}
                     onChange={handlePriceChange}
@@ -94,7 +94,7 @@ const Shop = () => {
               </div>
 
               <div className="my-4">
-                <h1 className="mb-3 text-3xl font-semibold">By Category</h1>
+                <h1 className="mb-3 text-3xl font-semibold">Por categoria</h1>
 
                 <div>
                   {categoryList.map((category, key) => (
@@ -113,7 +113,7 @@ const Shop = () => {
               </div>
 
               <div className="my-4">
-                <h1 className="mb-3 text-3xl font-semibold">By Brand</h1>
+                <h1 className="mb-3 text-3xl font-semibold">Por marca</h1>
                 <div>
                   {brandList.map((brand, key) => (
                     <div className="flex items-center" key={key}>

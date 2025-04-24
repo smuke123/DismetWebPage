@@ -28,10 +28,10 @@ export const navbar = [
 
 export const banners = [
   {
-    banner: "../images/miniture/slider-1.jpeg",
+    banner: "../images/miniture/slider-2.jpeg",
   },
   {
-    banner: "../images/miniture/slider-2.jpeg",
+    banner: "../images/miniture/slider-1.jpeg",
   },
   {
     banner: "../images/miniture/slider-3.jpeg",
@@ -74,7 +74,7 @@ export const products = [
     brand: "Old Brand",
     title: "Natural Wood Dining Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.000",
+    price: "129000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -85,7 +85,7 @@ export const products = [
     brand: "Latest Brand",
     title: "Dining Chair",
     short_description: "Lorem ipsum dolor",
-    price: "1.209.000",
+    price: "1209000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -96,7 +96,7 @@ export const products = [
     brand: "Latest Brand",
     title: "Best Chair",
     short_description: "Lorem ipsum dolor",
-    price: "529.000.",
+    price: "529000.",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -107,7 +107,7 @@ export const products = [
     brand: "Latest Brand",
     title: "Natural Wood Chair",
     short_description: "Lorem ipsum dolor",
-    price: "900.000",
+    price: "900000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -118,7 +118,7 @@ export const products = [
     brand: "Latest Brand",
     title: "Sitting Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.000",
+    price: "129000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -129,7 +129,7 @@ export const products = [
     brand: "Latest Brand",
     title: "Natural Wood Dining Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.000",
+    price: "129000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -141,7 +141,7 @@ export const products = [
     brand: "Latest Brand",
     title: "Beautiful Chair",
     short_description: "Lorem ipsum dolor",
-    price: "1.129.000",
+    price: "1129000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -152,7 +152,7 @@ export const products = [
     brand: "Indian",
     title: "Chair set",
     short_description: "Lorem ipsum dolor",
-    price: "129.000",
+    price: "129000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -163,7 +163,7 @@ export const products = [
     brand: "Indian",
     title: "Best One",
     short_description: "Lorem ipsum dolor",
-    price: "129.000",
+    price: "129000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -174,7 +174,7 @@ export const products = [
     brand: "Indian",
     title: "Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.000",
+    price: "129000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -185,7 +185,7 @@ export const products = [
     brand: "Indian",
     title: "Old Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.000",
+    price: "129000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -196,7 +196,7 @@ export const products = [
     brand: "Indian",
     title: "New Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.000",
+    price: "129000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -207,7 +207,7 @@ export const products = [
     brand: "Indian",
     title: "New Brand Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.000",
+    price: "129000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
@@ -218,7 +218,7 @@ export const products = [
     brand: "Indian",
     title: "Stylish Chair",
     short_description: "Lorem ipsum dolor",
-    price: "129.000",
+    price: "129000",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elitLorem ipsum dolor sit amet, consectetur adipiscing elit  euismod er  elit",
   },
