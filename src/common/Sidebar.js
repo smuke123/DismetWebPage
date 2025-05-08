@@ -28,7 +28,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
         }}
         className="fixed top-0 right-0 h-full bg-white shadow-lg transition-transform duration-300 ease-in-out overflow-y-auto"
       >
-        <div className="border-b mb-4">
+        <div className="border-b mb-4 bg-secondary">
           <h1 className="text-3xl p-4">Tu carro</h1>
         </div>
 
@@ -68,7 +68,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                 </div>
               ))}
 
-              <div className="flex p-6 items-center bg-black w-full text-white font-bold">
+              <div className="flex p-6 items-center bg-black w-full text-white font-bold sticky bottom-0">
                 <h2>
                   Sub Total : <span>${totalAmount}</span>
                 </h2>

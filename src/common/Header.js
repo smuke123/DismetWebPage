@@ -5,9 +5,12 @@ import { useSelector } from "react-redux";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { HiOutlineHeart, HiOutlineUser } from "react-icons/hi";
 import Sidebar from "./Sidebar";
+import Userbar from "./Userbar";
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const [isUserbarOpen, setIsUserbarOpen] = useState(false);
 
   const [sticky, setSticky] = useState(false);
 
@@ -24,6 +27,10 @@ const Header = () => {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const toggleUserbar = () => {
+    setIsUserbarOpen(!isUserbarOpen);
   };
 
   const { totalItems } = useSelector((state) => state.cart);
@@ -53,7 +60,7 @@ const Header = () => {
             <Link onClick={toggleSidebar} className=" mr-5 text-2xl">
               <HiOutlineHeart />
             </Link>
-            <Link className=" mr-5 text-2xl">
+            <Link onClick={toggleUserbar} className=" mr-5 text-2xl">
               <HiOutlineUser />
             </Link>
             <Link onClick={toggleSidebar} className="relative  mr-5 text-2xl">
@@ -69,6 +76,10 @@ const Header = () => {
       <Sidebar
         isSidebarOpen={isSidebarOpen}
         closeSidebar={() => toggleSidebar()}
+      />
+      <Userbar
+        isUserbarOpen={isUserbarOpen}
+        closeUserbar={() => toggleUserbar()}
       />
     </>
   );

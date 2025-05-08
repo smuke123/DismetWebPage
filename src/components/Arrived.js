@@ -14,12 +14,14 @@ const Arrived = () => {
             <p className="my-4">
               Etiquetanos @ en tus fotos de instagram para salir en esta sección.
             </p>
-            <Link
-              className="border bg-accent rounded-full text-white px-4 py-2"
-              to={"instagram.com"}
+            <a
+            href="https://www.instagram.com/santiago_arizag/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block border bg-accent rounded-full text-white px-4 py-2 hover:bg-accent-dark transition-colors"
             >
-              Visita nuestro instagram
-            </Link>
+              Visita nuestro Instagram
+            </a>
           </div>
           <div className="grid grid-cols-3 gap-4 mb-8">
             {arriveItems.map((item, index) => (
