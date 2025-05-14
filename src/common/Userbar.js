@@ -1,6 +1,7 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import LoginForm from "../components/Auth/LoginForm";
 
 const Userbar = ({ isUserbarOpen, closeUserbar }) => {
   return (
@@ -21,7 +22,7 @@ const Userbar = ({ isUserbarOpen, closeUserbar }) => {
 
       {/* Contenido vacío (por ahora) */}
       <div className="p-6 text-center">
-        <p className="text-gray-500">Aquí irá el formulario de login/registro</p>
+        <LoginForm />
       </div>
     </div>
   );

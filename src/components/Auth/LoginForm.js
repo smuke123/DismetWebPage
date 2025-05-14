@@ -19,7 +19,7 @@ const LoginForm = () => {
               htmlFor="email" 
               className="block text-sm font-medium text-gray-700 mb-1"
             >
-              Your email:
+              Tu correo:
             </label>
             <input
               type="email"
@@ -35,7 +35,7 @@ const LoginForm = () => {
               htmlFor="password" 
               className="block text-sm font-medium text-gray-700 mb-1"
             >
-              Your password:
+              Tu contraseña:
             </label>
             <input
               type="password"
@@ -59,13 +59,13 @@ const LoginForm = () => {
               to="/register" 
               className="text-blue-600 hover:text-blue-800 hover:underline transition-colors"
             >
-              Don't have an account?
+              ¿No tienes una cuenta?
             </Link>
             <Link 
               to="/forgot-password" 
               className="text-gray-600 hover:text-gray-800 hover:underline transition-colors"
             >
-              Forgot password?
+              ¿Olvidaste tu contraseña?
             </Link>
           </div>
         </form>
