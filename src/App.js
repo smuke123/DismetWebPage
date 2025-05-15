@@ -9,6 +9,7 @@ import Shop from "./pages/Shop";
 import ContactUs from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
 import Blog from "./pages/Blog";
+import Register from "./components/Auth/RegisterForm";
 
 const App = () => {
   return (
@@ -23,8 +24,10 @@ const App = () => {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
+
         <Footer />
       </Router>
       {/* for suggestion we need to hit ctrl + space */}

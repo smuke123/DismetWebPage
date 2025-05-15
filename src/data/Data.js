@@ -254,8 +254,8 @@ export const arriveItems = [
 export const offer = [
   {
     customer_img: "../images/miniture/creation.jpg",
-    title: "CRAFT OWN FURNITURE",
-    subtitle: "Your new forever favorites are here",
+    title: "CONSTRUYE TU FUTURO",
+    subtitle: "Tus muebles favoritos",
   },
 ];
 

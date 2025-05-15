@@ -42,7 +42,7 @@ const Cart = () => {
         <div className="mt-8">
           {cartProducts.length === 0 ? (
             <div className="text-3xl font-bold uppercase">
-              Your Cart has No Product
+              No tienes productos en el carro.
             </div>
           ) : (
             <div>

@@ -42,7 +42,7 @@ const LoginForm = () => {
               className="w-full px-3 py-2 rounded-lg bg-white/70 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm"
               placeholder="••••••••"
             />
-          </div>
+          </div>   
 
           {/* Botón Login */}
           <button
