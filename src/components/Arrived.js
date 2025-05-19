@@ -1,3 +1,4 @@
+import React from "react";
 import { arriveItems } from "../data/Data";
 import Heading from "../common/Heading";
 import { Link } from "react-router-dom";
@@ -19,7 +20,7 @@ const Arrived = () => {
               to={"instagram.com"}
             >
               Visita nuestro Instagram
-            </a>
+            </Link>
           </div>
           <div className="grid grid-cols-3 gap-4 mb-8">
             {arriveItems.map((item, index) => (
