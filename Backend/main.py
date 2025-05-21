@@ -36,7 +36,6 @@ SECRET_KEY = os.getenv("SECRET_KEY", "secretazo123")
 ALGORITHM = "HS256"
 @app.get("/", response_class=HTMLResponse)
 async def root():
-    # Aquí solo un link para iniciar OAuth, pero recuerda que React hará el login
     return '<a href="/auth/google">Iniciar sesión con Google</a>'
 
 @app.get("/auth/google")
@@ -80,13 +79,13 @@ async def google_callback(code: str):
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Error al validar token: {e}")
 
-    # Aquí podrías registrar o buscar usuario en BD
+    #Funcion pendiente para conectar a la BD
 
-    # Generamos un JWT propio para tu app
+    # Generamos un JWT propio para la app
     user_email = payload.get("email")
     user_name = payload.get("name")
 
-    # JWT simplificado (sin expiración, ponle cuando quieras)
+    # JWT simplificado
     user_token = jwt.encode({"sub": user_email}, SECRET_KEY, algorithm=ALGORITHM)
 
     # En vez de redirect a perfil, mandamos un JSON con token y usuario
@@ -95,7 +94,6 @@ async def google_callback(code: str):
 @app.get("/profile")
 async def profile(token: str = Depends(get_current_user)):
     # Aquí validarías tu JWT para proteger la ruta
-    # Solo un ejemplo rápido:
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         user_email = payload.get("sub")
