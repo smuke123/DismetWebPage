@@ -67,6 +67,12 @@ const LoginForm = () => {
             >
               ¿Olvidaste tu contraseña?
             </Link>
+            <a
+              href="http://localhost:8000/auth/google"
+              className="text-blue-600 hover:text-blue-800 hover:underline transition-colors"
+            >
+              Registrarse con Google
+            </a>
           </div>
         </form>
       </div>

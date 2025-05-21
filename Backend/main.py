@@ -14,12 +14,7 @@ app = FastAPI()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 async def get_current_user(token: str = Security(oauth2_scheme)):
-    try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        user_email = payload.get("sub")
-        return user_email
-    except Exception:
-        raise HTTPException(status_code=401, detail="Token inválido")
+    return {"message": f"Bienvenido, {token}"}
 
 app.add_middleware(
     CORSMiddleware,
