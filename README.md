@@ -54,7 +54,24 @@ Disfruta de la pagina:
 ```bash
   npm start
 ```
+## Pasos para ejecutar el backend
+```bash
+  cd DismetWebPage/Backend
+```
 
+(opcional) Crea y activa un entorno virtual
+```bash
+  python -m venv venv
+  source venv/bin/activate  # En Windows: venv\Scripts\activate
+```
+instala las dependencias necesarias:
+```bash
+  pip install -r requirements.txt
+```
+Ejecuta el servidor de desarrollo:
+```bash
+  uvicorn main:app --reload #backend corriendo en localhost:8000
+```
 ## 👥 Autores
 
 - [smuke123](https://github.com/smuke123)
