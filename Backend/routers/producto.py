@@ -3,7 +3,6 @@ from sqlalchemy.orm import Session
 from typing import List
 
 from Backend.models import Producto
-from Backend import models
 from Backend.database import get_db
 from DismetWebPage.Backend.schemas import SCHproducto
 
