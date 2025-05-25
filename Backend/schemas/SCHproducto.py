@@ -12,7 +12,14 @@ class ProductoCreate(ProductoBase):
     marca: str
     descripcion_corta: str
 
-
+class ProductoUpdate(BaseModel):
+    titulo: Optional[str] = None
+    descripcion: Optional[str] = None
+    precio: Optional[float] = None
+    img: Optional[str] = None
+    categoria: Optional[str] = None
+    marca: Optional[str] = None
+    descripcion_corta: Optional[str] = None
 
 class ProductoResponse(ProductoBase):
     id: int
