@@ -4,14 +4,15 @@ from typing import List
 import bcrypt
 from Backend.utils.security import hash_password, verify_password
 from Backend.models import Usuario
-from Backend import schemas, models
+from Backend import models
 from Backend.database import get_db
+from DismetWebPage.Backend.schemas import SCHusuario
 
 router = APIRouter()
 
 # Crear usuario 
-@router.post("/", response_model=schemas.UsuarioResponse)
-def crear_usuario(usuario: schemas.UsuarioCreate, db: Session = Depends(get_db)):
+@router.post("/", response_model=SCHusuario.UsuarioResponse)
+def crear_usuario(usuario: SCHusuario.UsuarioCreate, db: Session = Depends(get_db)):
     usuario_existente = db.query(Usuario).filter(Usuario.correo == usuario.correo).first()
     if usuario_existente:
         raise HTTPException(status_code=400, detail="El usuario ya existe")
@@ -32,12 +33,12 @@ def crear_usuario(usuario: schemas.UsuarioCreate, db: Session = Depends(get_db))
     return db_usuario
 
 # Obtener todos los usuarios
-@router.get("/", response_model=List[schemas.UsuarioResponse])
+@router.get("/", response_model=List[SCHusuario.UsuarioResponse])
 def obtener_usuarios(db: Session = Depends(get_db)):
     return db.query(Usuario).all()
 
 # Obtener usuario por ID
-@router.get("/{usuario_id}", response_model=schemas.UsuarioResponse)
+@router.get("/{usuario_id}", response_model=SCHusuario.UsuarioResponse)
 def obtener_usuario(usuario_id: int, db: Session = Depends(get_db)):
     usuario = db.query(Usuario).filter(Usuario.id == usuario_id).first()
     if not usuario:
@@ -57,7 +58,7 @@ def eliminar_usuario(usuario_id: int, db: Session=Depends(get_db)):
 
 #Editar un Usuario
 @router.put("/{usuario_id}")
-def actualizar_usuario(usuario_id: int, usuario_update: schemas.UsuarioUpdate, db: Session = Depends(get_db)):
+def actualizar_usuario(usuario_id: int, usuario_update: SCHusuario.UsuarioUpdate, db: Session = Depends(get_db)):
     usuario = db.query(Usuario).filter(Usuario.id == usuario_id).first()
     if not usuario:
         raise HTTPException(status_code=404, detail="Usuario no encontrado, compa")
@@ -71,7 +72,7 @@ def actualizar_usuario(usuario_id: int, usuario_update: schemas.UsuarioUpdate, d
 
 #cambiar password
 @router.put("/{usuario_id}/password")
-def cambiar_password(usuario_id: int, datos: schemas.CambiarPasswordRequest, db: Session = Depends(get_db)):
+def cambiar_password(usuario_id: int, datos: SCHusuario.CambiarPasswordRequest, db: Session = Depends(get_db)):
     usuario = db.query(Usuario).filter(Usuario.id == usuario_id).first()
     if not usuario:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
