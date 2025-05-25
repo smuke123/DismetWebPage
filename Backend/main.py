@@ -102,4 +102,4 @@ async def profile(token: str = Depends(get_current_user)):
 #Base de datos
 models.Base.metadata.create_all(bind=engine)
 
-app.include_router(usuario.router)
+app.include_router(usuario.router, prefix="/usuarios")

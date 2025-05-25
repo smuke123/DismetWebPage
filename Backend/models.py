@@ -10,6 +10,7 @@ class Usuario(Base):
     username = Column(String(50), unique=True, nullable=False)
     direccion = Column(String(200))
     telefono = Column(String(20))
+    contrasena = Column(String(100), nullable=False)
 
 class Producto(Base):
     __tablename__ = "Producto"
