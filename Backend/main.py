@@ -9,7 +9,7 @@ import os
 from dotenv import load_dotenv
 from Backend.database import Base, engine
 from Backend import models
-from Backend.routers import usuario
+from Backend.routers import usuario, producto
 
 load_dotenv()
 
@@ -103,3 +103,4 @@ async def profile(token: str = Depends(get_current_user)):
 models.Base.metadata.create_all(bind=engine)
 
 app.include_router(usuario.router, prefix="/usuarios")
+app.include_router(producto.router, prefix="/producto")
