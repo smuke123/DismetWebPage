@@ -6,7 +6,7 @@ from Backend.utils.security import hash_password, verify_password
 from Backend.models import Usuario
 from Backend import models
 from Backend.database import get_db
-from DismetWebPage.Backend.schemas import SCHusuario
+from Backend.schemas import SCHusuario
 
 router = APIRouter()
 

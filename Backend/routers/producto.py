@@ -4,7 +4,7 @@ from typing import List
 
 from Backend.models import Producto
 from Backend.database import get_db
-from DismetWebPage.Backend.schemas import SCHproducto
+from Backend.schemas import SCHproducto
 
 router = APIRouter()
 
