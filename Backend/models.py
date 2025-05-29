@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, DECIMAL, Text
+from sqlalchemy import Column, Integer, String, DECIMAL, Text, ForeignKey
+from sqlalchemy.orm import relationship
 from Backend.database import Base
 
 class Usuario(Base):
@@ -23,3 +24,16 @@ class Producto(Base):
     descripcion_corta = Column(String(255))
     precio = Column(DECIMAL(10, 2), nullable=False)
     descripcion = Column(Text)
+
+class Pago(Base):
+    __tablename__ = "pagos"
+
+    id = Column(Integer, primary_key=True, index=True)
+    usuario_id = Column(Integer, ForeignKey("Usuario.id"))
+    monto = Column(Integer)  # En centavos
+    payment_intent_id = Column(String(255), unique=True)
+
+    usuario = relationship("Usuario", back_populates="pagos")
+
+# Agregale a Usuario:
+Usuario.pagos = relationship("Pago", back_populates="usuario", cascade="all, delete")

@@ -90,3 +90,13 @@ commit;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
 -- Dump completed on 2025-05-24 15:56:05
+
+DROP TABLE IF EXISTS `pagos`;
+
+CREATE TABLE `pagos` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `usuario_id` INT NOT NULL,
+    `monto` INT NOT NULL, -- en centavos COP
+    `payment_intent_id` VARCHAR(255) UNIQUE,
+    FOREIGN KEY (`usuario_id`) REFERENCES usuarios(`id`) ON DELETE CASCADE
+);
