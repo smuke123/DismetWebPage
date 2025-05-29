@@ -32,6 +32,8 @@ CREATE TABLE `Producto` (
   `descripcion_corta` varchar(255) DEFAULT NULL,
   `precio` decimal(10,2) NOT NULL,
   `descripcion` text DEFAULT NULL,
+  `cantidad` int NOT NULL,  
+
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

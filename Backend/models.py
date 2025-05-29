@@ -25,6 +25,7 @@ class Producto(Base):
     descripcion_corta = Column(String(255))
     precio = Column(DECIMAL(10, 2), nullable=False)
     descripcion = Column(Text)
+    cantidad = Column(Integer, nullable=False)
 
 class Pago(Base):
     __tablename__ = "pagos"

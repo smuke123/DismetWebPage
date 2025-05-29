@@ -5,6 +5,8 @@ class ProductoBase(BaseModel):
     titulo: str
     descripcion :str
     precio: float
+    cantidad: int 
+
 
 class ProductoCreate(ProductoBase):
     img: str
