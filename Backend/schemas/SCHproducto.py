@@ -23,7 +23,11 @@ class ProductoUpdate(BaseModel):
 
 class ProductoResponse(ProductoBase):
     id: int
-
+    img: str
+    categoria: str
+    marca: str
+    descripcion_corta: str
+    
     model_config:  ClassVar[Dict[str, Any]] = {
         "from_attributes": True
     }
