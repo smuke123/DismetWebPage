@@ -10,6 +10,7 @@ class UsuarioCreate(UsuarioBase):
     username : str
     direccion : str
     telefono : str
+    rol: bool 
 
 class UsuarioUpdate(BaseModel):
     nombre: Optional[str] = None
@@ -26,6 +27,7 @@ class UsuarioResponse(UsuarioBase):
     id: int
     username : str
     direccion : Optional[str] = None
+    rol: Optional[bool] = None
     telefono : Optional[str] = None
 
     model_config:  ClassVar[Dict[str, Any]] = {

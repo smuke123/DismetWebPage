@@ -61,8 +61,8 @@ CREATE TABLE `Usuario` (
   `username` varchar(50) NOT NULL,
   `direccion` varchar(200) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
-  `direccion` varchar(100) NOT NULL,
-  `contrasena` varchar(100)
+  `contrasena` varchar(100),
+  `rol` boolean NOT NULL,  
   PRIMARY KEY (`id`),
   UNIQUE KEY `correo` (`correo`),
   UNIQUE KEY `username` (`username`)
@@ -98,5 +98,5 @@ CREATE TABLE `pagos` (
     `usuario_id` INT NOT NULL,
     `monto` INT NOT NULL, -- en centavos COP
     `payment_intent_id` VARCHAR(255) UNIQUE,
-    FOREIGN KEY (`usuario_id`) REFERENCES usuarios(`id`) ON DELETE CASCADE
+    FOREIGN KEY (`usuario_id`) REFERENCES Usuario(`id`) ON DELETE CASCADE
 );

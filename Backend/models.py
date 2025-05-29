@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DECIMAL, Text, ForeignKey
+from sqlalchemy import Column, Integer, String, DECIMAL, Text, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 from Backend.database import Base
 
@@ -12,6 +12,7 @@ class Usuario(Base):
     direccion = Column(String(200))
     telefono = Column(String(20))
     contrasena = Column(String(100), nullable=True)
+    rol = Column(Boolean, nullable=False, default=False)
 
 class Producto(Base):
     __tablename__ = "Producto"

@@ -25,7 +25,8 @@ def crear_usuario(usuario: SCHusuario.UsuarioCreate, db: Session = Depends(get_d
         username=usuario.username,
         direccion=usuario.direccion,
         telefono=usuario.telefono,
-        contrasena = hashed_password
+        contrasena = hashed_password,
+        rol = usuario.rol
     )
     db.add(db_usuario)
     db.commit()
