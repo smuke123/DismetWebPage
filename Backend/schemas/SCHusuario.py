@@ -24,6 +24,9 @@ class CambiarPasswordRequest(BaseModel):
 
 class UsuarioResponse(UsuarioBase):
     id: int
+    username : str
+    direccion : str
+    telefono : str    
 
     model_config:  ClassVar[Dict[str, Any]] = {
         "from_attributes": True
