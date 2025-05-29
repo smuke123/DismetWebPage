@@ -58,11 +58,11 @@ def eliminar_usuario(usuario_id: int, db: Session=Depends(get_db)):
     return {"mensaje": f"Usuario con ID {usuario_id} eliminado exitosamente"}
 
 #Editar un Usuario
-@router.put("/{usuario_id}")
+@router.put("/{usuario_id}", response_model=SCHusuario.UsuarioResponse)
 def actualizar_usuario(usuario_id: int, usuario_update: SCHusuario.UsuarioUpdate, db: Session = Depends(get_db)):
     usuario = db.query(Usuario).filter(Usuario.id == usuario_id).first()
     if not usuario:
-        raise HTTPException(status_code=404, detail="Usuario no encontrado, compa")
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
 
     for attr, value in usuario_update.dict(exclude_unset=True).items():
         setattr(usuario, attr, value)
