@@ -61,7 +61,8 @@ CREATE TABLE `Usuario` (
   `username` varchar(50) NOT NULL,
   `direccion` varchar(200) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
-  `direccion` varchar(100) NOT NULL
+  `direccion` varchar(100) NOT NULL,
+  `contrasena` varchar(100)
   PRIMARY KEY (`id`),
   UNIQUE KEY `correo` (`correo`),
   UNIQUE KEY `username` (`username`)

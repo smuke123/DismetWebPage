@@ -6,6 +6,10 @@ from jose import jwt
 import httpx
 import os
 from dotenv import load_dotenv
+from sqlalchemy.orm import Session
+from Backend.database import get_db
+from Backend import models
+
 
 load_dotenv()
 
@@ -38,8 +42,9 @@ async def auth_google():
     )
     return RedirectResponse(url=google_auth_url)
 
+
 @router.get("/auth/google/callback")
-async def google_callback(code: str):
+async def google_callback(code: str, db: Session = Depends(get_db)):
     async with httpx.AsyncClient() as client:
         token_response = await client.post(
             "https://oauth2.googleapis.com/token",
@@ -51,14 +56,15 @@ async def google_callback(code: str):
                 "grant_type": "authorization_code",
             }
         )
+
     token_json = token_response.json()
     id_token = token_json.get("id_token")
-
     if not id_token:
         raise HTTPException(status_code=400, detail="No se recibió id_token de Google")
 
     try:
-        payload = jwt.decode(id_token, options={"verify_signature": False})
+        payload = jwt.decode(id_token,key='', options={"verify_signature": False, "verify_at_hash": False}, audience=GOOGLE_CLIENT_ID)
+
         if payload.get("aud") != GOOGLE_CLIENT_ID:
             raise HTTPException(status_code=400, detail="Token inválido")
     except Exception as e:
@@ -66,10 +72,19 @@ async def google_callback(code: str):
 
     user_email = payload.get("email")
     user_name = payload.get("name")
+    user_username = user_email.split('@')[0]
+    # Verificar si el usuario ya existe
+    db_user = db.query(models.Usuario).filter(models.Usuario.correo == user_email).first()
+    if not db_user:
+        nuevo_usuario = models.Usuario(nombre=user_name, correo=user_email, username = user_username)
+        db.add(nuevo_usuario)
+        db.commit() 
+        db.refresh(nuevo_usuario)
 
     user_token = jwt.encode({"sub": user_email}, SECRET_KEY, algorithm=ALGORITHM)
 
     return {"access_token": user_token, "email": user_email, "name": user_name}
+
 
 @router.get("/profile")
 async def profile(token: str = Depends(get_current_user)):
