@@ -4,8 +4,6 @@ from Backend.database import Base, engine
 from Backend import models
 from Backend.routers import usuario, producto, oauth, wompi
 
-
-
 app = FastAPI()
 
 app.add_middleware(
