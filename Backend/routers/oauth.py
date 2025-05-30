@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Request, HTTPException, Depends
+from fastapi import APIRouter, Request, HTTPException, Depends, Body
+from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import Security
@@ -9,7 +10,8 @@ from dotenv import load_dotenv
 from sqlalchemy.orm import Session
 from Backend.database import get_db
 from Backend import models
-
+from Backend.schemas.pydantic import LoginRequest
+from Backend.utils.security import hash_password, verify_password, create_access_token
 
 load_dotenv()
 
@@ -110,3 +112,18 @@ def obtener_usuario_actual(token: str = Depends(oauth2_scheme), db: Session = De
     if usuario is None:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     return usuario
+
+#Log in
+
+@router.post("/login")
+def login(data: dict = Body(...), db: Session = Depends(get_db)):
+    email = data.get("email")
+    password = data.get("password")
+    usuario = db.query(models.Usuario).filter(models.Usuario.correo == email).first()
+    if not usuario:
+        raise HTTPException(status_code=400, detail="Correo o contraseña incorrectos")
+    if not verify_password(password, usuario.contrasena):
+        raise HTTPException(status_code=400, detail="Correo o contraseña incorrectos")
+    
+    token = create_access_token(data={"sub": usuario.correo})
+    return {"access_token": token, "token_type": "bearer"}
