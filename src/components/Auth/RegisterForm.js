@@ -9,6 +9,7 @@ const RegisterForm = () => {
   const [telefono, setTelefono] = useState("");
   const [password, setPassword] = useState("");
   const [rol, setRol] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +26,7 @@ const RegisterForm = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/usuarios", {
+      const response = await fetch("http://localhost:8000/usuarios/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,18 +35,24 @@ const RegisterForm = () => {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        console.log("Usuario creado:", data);
-        alert("¡Usuario creado exitosamente!");
-        // Redirigir o limpiar formulario si quieres
+        console.log("Usuario registrado correctamente");
+        window.location.href="/"
+        alert("Usuario registrado correctamente!"); 
       } else {
-        const errorData = await response.json();
-        console.error("Error:", errorData);
-        alert("Error al crear usuario");
+        const data = await response.json();
+
+       
+        if (data.detail && data.detail === "El usuario ya existe") {
+          setError("El usuario ya existe. Usa otro correo o username.");
+        } else if (data.detail) {
+          setError(data.detail);
+        } else {
+          setError("Ocurrió un error desconocido al registrar.");
+        }
       }
     } catch (error) {
-      console.error("Error de red:", error);
-      alert("Error de red");
+      console.error(error);
+      setError("Error de conexión. Intenta de nuevo.");
     }
   };
 
@@ -55,6 +62,11 @@ const RegisterForm = () => {
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           Crear una cuenta
         </h2>
+         {error && (
+            <div className="bg-red-100 text-red-700 p-2 rounded mb-4 text-sm">
+              {error}
+            </div>
+          )}
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           {/* Nombre */}
