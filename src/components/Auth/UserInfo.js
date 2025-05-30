@@ -72,16 +72,19 @@ const UserInfo = () => {
         </div>
       </div>
 
-      <button
-        onClick={() => {
-          localStorage.removeItem("access_token");
-          setUser(null);
-          // Podés evitar recargar la página, simplemente forzar estado
-        }}
-        className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-      >
-        Cerrar sesión
-      </button>
+        <div>
+            <button
+                onClick={() => {
+                localStorage.removeItem("access_token");
+                setUser(null);
+                // Podés evitar recargar la página, simplemente forzar estado
+                }}
+                type="submit"
+                className="block w-full bg-gradient-to-r bg-secondary text-white py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-300 text-sm mb-6 mt-6"
+            >
+                Cerrar sesión
+            </button>
+        </div>
     </div>
   );
 };
