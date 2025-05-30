@@ -12,10 +12,9 @@ const Cart = () => {
     (state) => state.cart
   );
 
-  // const cartSelector = useSelector((state) => state.cart);
-  // useEffect(() => {
-  //   dispatch(getCartTotal());
-  // }, [cartSelector]);
+  useEffect(() => {
+    dispatch(getCartTotal());
+  }, [cartProducts, dispatch]);
 
   const removeFromCart = (itemId) => {
     dispatch(removeItem({ id: itemId }));
@@ -30,6 +29,27 @@ const Cart = () => {
     if (currentQuantity > 1) {
       dispatch(updateQuantity({ id: itemId, quantity: currentQuantity - 1 }));
       dispatch(getCartTotal());
+    }
+  };
+
+  const proceedToCheckout = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/stripe/crear-pago/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ total: totalAmount }),
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url; // Redirige al checkout de Stripe
+      } else {
+        alert("Error al crear sesión de pago");
+      }
+    } catch (error) {
+      console.error("Error en pago:", error);
+      alert("Error al procesar el pago");
     }
   };
 
@@ -62,7 +82,7 @@ const Cart = () => {
                       <tr key={key}>
                         <td className="text-center px-4 py-2">
                           <span
-                            className="text-red-500"
+                            className="text-red-500 cursor-pointer"
                             onClick={() => removeFromCart(item.id)}
                           >
                             <FaTimes />
@@ -126,8 +146,11 @@ const Cart = () => {
                 </div>
 
                 <div className="whitespace-nowrap flex items-center justify-between mt-4">
-                  <div className="px-4 py-2 common-hover rounded-lg text-white">
-                    <Link>Proceed To Checkout</Link>
+                  <div
+                    className="px-4 py-2 common-hover rounded-lg text-white cursor-pointer"
+                    onClick={proceedToCheckout}
+                  >
+                    Proceed To Checkout
                   </div>
 
                   <div className="px-4 py-2 bg-rose-800 rounded-lg text-white">
@@ -144,3 +167,4 @@ const Cart = () => {
 };
 
 export default Cart;
+

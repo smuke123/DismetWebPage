@@ -17,14 +17,14 @@ endpoint_secret = os.getenv("STRIPE_WEBHOOK_SECRET")
 
 router = APIRouter(prefix="/stripe", tags=["Stripe"])
 
-#class PagoRequest(BaseModel):
-#   total: float #Total en COP
+class PagoRequest(BaseModel):
+   total: float #Total en COP
 
 @router.post("/crear-pago/")
-#def crear_pago(data: PagoRequest):
-def crear_pago():    
+def crear_pago(data: PagoRequest):
+  
     try:
-        #total_cop = data.total
+        total_cop = data.total
         total_cop = 50000
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
@@ -34,14 +34,13 @@ def crear_pago():
                     'product_data': {
                         'name': 'Compra en Dismet',
                     },
-                    #'unit_amount': int(total_cop * 100),  #en centavos COP
-                    'unit_amount': int(total_cop *100),
+                    'unit_amount': int(total_cop * 100),  #en centavos COP
                 },
                 'quantity': 1,
             }],
             mode='payment',
-            success_url='http://localhost:8000/success',
-            cancel_url='http://localhost:8000/cancel',
+            success_url='http://localhost:3000/',
+            cancel_url='http://localhost:3000/',
         )
 
         return {"url": checkout_session.url}
@@ -103,7 +102,6 @@ def obtener_pagos(usuario_id: int, db: Session = Depends(get_db)):
         }
         for pago in pagos
     ]
-
 
 # Testeo de agregar pago 
 from fastapi import Body
