@@ -16,6 +16,7 @@ const LoginForm = () => {
 
     if (!response.ok) {
       alert("Credenciales incorrectas");
+      
       return;
     }
 
@@ -23,7 +24,7 @@ const LoginForm = () => {
     console.log("Token recibido:", data.access_token);
 
     // Guardar el token en localStorage
-    localStorage.setItem("token", data.access_token);
+    localStorage.setItem("access_token", data.access_token);
 
     // Redirigir al usuario a donde quieras, por ejemplo /dashboard
     window.location.href = "/";

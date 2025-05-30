@@ -4,9 +4,11 @@ from typing import List
 import bcrypt
 from Backend.utils.security import hash_password, verify_password
 from Backend.models import Usuario
-from Backend import models
+from Backend import models, schemas
 from Backend.database import get_db
 from Backend.schemas import SCHusuario
+from Backend.routers.oauth import obtener_usuario_actual
+
 
 router = APIRouter()
 
@@ -39,12 +41,12 @@ def obtener_usuarios(db: Session = Depends(get_db)):
     return db.query(Usuario).all()
 
 # Obtener usuario por ID
-@router.get("/{usuario_id}", response_model=SCHusuario.UsuarioResponse)
-def obtener_usuario(usuario_id: int, db: Session = Depends(get_db)):
-    usuario = db.query(Usuario).filter(Usuario.id == usuario_id).first()
-    if not usuario:
-        raise HTTPException(status_code=404, detail="Usuario no encontrado")
-    return usuario
+#@router.get("/{usuario_id}", response_model=SCHusuario.UsuarioResponse)
+#def obtener_usuario(usuario_id: int, db: Session = Depends(get_db)):
+ #   usuario = db.query(Usuario).filter(Usuario.id == usuario_id).first()
+  #  if not usuario:
+   #     raise HTTPException(status_code=404, detail="Usuario no encontrado")
+    #return usuario
 
 #eliminar un Usuario
 @router.delete("/{usuario_id}")
@@ -84,3 +86,9 @@ def cambiar_password(usuario_id: int, datos: SCHusuario.CambiarPasswordRequest, 
     usuario.contrasena = hash_password(datos.new_password)
     db.commit()
     return {"msg": "Contraseña actualizada con éxito"}
+
+
+#Obtener Usuario Actual
+@router.get("/me", response_model=SCHusuario.UsuarioResponse)
+def get_current_user_info(db: Session = Depends(get_db), current_user: models.Usuario = Depends(obtener_usuario_actual)):
+    return current_user

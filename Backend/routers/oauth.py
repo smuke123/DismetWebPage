@@ -16,7 +16,7 @@ load_dotenv()
 
 router = APIRouter()
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
@@ -101,13 +101,13 @@ async def profile(token: str = Depends(get_current_user)):
 def obtener_usuario_actual(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        user_id = payload.get("sub")
-        if user_id is None:
+        email = payload.get("sub")
+        if email is None:
             raise HTTPException(status_code=401, detail="Token inválido")
     except JWTError:
         raise HTTPException(status_code=401, detail="Token inválido")
 
-    usuario = db.query(models.Usuario).filter(models.Usuario.id == int(user_id)).first()
+    usuario = db.query(models.Usuario).filter(models.Usuario.correo == (email)).first()
     if usuario is None:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     return usuario
