@@ -40,7 +40,7 @@ def obtener_producto(producto_id:int, db:Session=Depends(get_db)):
 def actualizar_producto(producto_id: int,producto_actualizado: SCHproducto.ProductoUpdate , db: Session=Depends(get_db),
                    usuario_actual: Usuario = Depends(obtener_usuario_actual)):
     if not usuario_actual.rol:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="No tienes permiso para agregar productos")
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="No tienes permiso para actualizar productos")
     producto = db.query(Producto).filter(Producto.id == producto_id).first()
     
     if not producto:
@@ -57,7 +57,7 @@ def actualizar_producto(producto_id: int,producto_actualizado: SCHproducto.Produ
 def eliminar_producto(producto_id: int, db: Session=Depends(get_db),
                       usuario_actual: Usuario=Depends(obtener_usuario_actual)):
     if not usuario_actual.rol:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="No tienes permiso para agregar productos")
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="No tienes permiso para eliminar productos")
     
     producto = db.query(Producto).filter(Producto.id == producto_id).first()
     if not producto:
@@ -65,3 +65,24 @@ def eliminar_producto(producto_id: int, db: Session=Depends(get_db),
     db.delete(producto)
     db.commit()
     return {"msg":"Producto eliminado exitosamente"}
+
+@router.post("/{producto_id}/comprar", response_model=SCHproducto.ProductoResponse)
+def comprar_producto(producto_id: int, cantidad: int, 
+                     db: Session = Depends(get_db),
+                     usuario_actual: Usuario = Depends(obtener_usuario_actual)):
+   #Para realizar una compra, el usuario debe exisitir y estar registrado 
+    producto = db.query(Producto).filter(Producto.id == producto_id).first()
+    if not producto:
+        raise HTTPException(status_code=404, detail="Producto no encontrado")
+
+    if cantidad <= 0:
+        raise HTTPException(status_code=400, detail="La cantidad debe ser positiva")
+
+    if producto.cantidad < cantidad:
+        raise HTTPException(status_code=400, detail="No hay suficiente stock disponible")
+
+    producto.cantidad -= cantidad
+    db.commit()
+    db.refresh(producto)
+
+    return producto
