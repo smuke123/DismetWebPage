@@ -38,7 +38,7 @@ const UserInfo = () => {
   }
 
   return (
-    <div className="bg-white/80 backdrop-blur-md rounded-xl shadow-xl p-6 border border-white/20 text-gray-800 space-y-4">
+    <div className="bg-white/80 backdrop-blur-md rounded-xl shadow-xl p-6 border border-white/20 text-gray-800 space-y-4 mb-3 mt-3">
       <h2 className="text-2xl font-bold text-center mb-4">
         ¡Bienvenido, {user.nombre || user.username || user.correo}!
       </h2>
@@ -72,7 +72,7 @@ const UserInfo = () => {
         </div>
       </div>
 
-        <div>
+        <div className="mt-3">
             <button
                 onClick={() => {
                 localStorage.removeItem("access_token");

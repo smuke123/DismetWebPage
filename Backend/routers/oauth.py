@@ -64,8 +64,7 @@ async def google_callback(code: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail="No se recibió id_token de Google")
 
     try:
-        payload = jwt.decode(id_token,key='', options={"verify_signature": False, "verify_at_hash": False}, audience=GOOGLE_CLIENT_ID)
-
+        payload = jwt.decode(id_token, key='', options={"verify_signature": False, "verify_at_hash": False}, audience=GOOGLE_CLIENT_ID)
         if payload.get("aud") != GOOGLE_CLIENT_ID:
             raise HTTPException(status_code=400, detail="Token inválido")
     except Exception as e:
@@ -74,17 +73,21 @@ async def google_callback(code: str, db: Session = Depends(get_db)):
     user_email = payload.get("email")
     user_name = payload.get("name")
     user_username = user_email.split('@')[0]
-    # Verificar si el usuario ya existe
+
     db_user = db.query(models.Usuario).filter(models.Usuario.correo == user_email).first()
     if not db_user:
-        nuevo_usuario = models.Usuario(nombre=user_name, correo=user_email, username = user_username)
+        nuevo_usuario = models.Usuario(nombre=user_name, correo=user_email, username=user_username)
         db.add(nuevo_usuario)
-        db.commit() 
+        db.commit()
         db.refresh(nuevo_usuario)
+        db_user = nuevo_usuario  # para el token abajo
 
     user_token = jwt.encode({"sub": str(db_user.id)}, SECRET_KEY, algorithm=ALGORITHM)
 
-    return {"access_token": user_token, "email": user_email, "name": user_name}
+    # Redirigir al frontend con el token en la URL
+    frontend_url = f"http://localhost:3000/login-redirect?token={user_token}"
+    return RedirectResponse(frontend_url)
+
 
 
 @router.get("/profile")

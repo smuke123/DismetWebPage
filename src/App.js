@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
 import Header from "./common/Header";
 import Footer from "./common/Footer";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
@@ -11,6 +10,7 @@ import ContactUs from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
 import Blog from "./pages/Blog";
 import Register from "./components/Auth/RegisterForm";
+import LoginRedirect from "./components/Auth/LoginRedirect";
 
 const App = () => {
   return (
@@ -26,6 +26,7 @@ const App = () => {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/login-redirect" element={<LoginRedirect />} />
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
 
