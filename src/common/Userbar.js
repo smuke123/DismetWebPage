@@ -1,15 +1,17 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import LoginForm from "../components/Auth/LoginForm";
+import UserInfo from "../components/Auth/UserInfo";
 
 const Userbar = ({ isUserbarOpen, closeUserbar }) => {
+  const token = localStorage.getItem("token");
+
   return (
     <div
       style={{
         zIndex: "100",
         transform: `translateX(${isUserbarOpen ? "0%" : "100%"})`,
-      }}  
+      }}
       className="fixed top-0 right-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out overflow-y-auto"
     >
       {/* Encabezado */}
@@ -20,9 +22,9 @@ const Userbar = ({ isUserbarOpen, closeUserbar }) => {
         </button>
       </div>
 
-      {/* Contenido vacío (por ahora) */}
+      {/* Contenido */}
       <div className="p-6 text-center">
-        <LoginForm />
+        {token ? <UserInfo /> : <LoginForm />}
       </div>
     </div>
   );
