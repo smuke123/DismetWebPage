@@ -2,7 +2,7 @@ from fastapi import APIRouter, Request, HTTPException, Depends
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import Security
-from jose import jwt
+from jose import jwt, JWTError
 import httpx
 import os
 from dotenv import load_dotenv
@@ -94,3 +94,19 @@ async def profile(token: str = Depends(get_current_user)):
         return {"message": f"Bienvenido, {user_email}"}
     except Exception:
         raise HTTPException(status_code=401, detail="Token inválido")
+
+#Autenticar usuario
+
+def obtener_usuario_actual(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        user_id = payload.get("sub")
+        if user_id is None:
+            raise HTTPException(status_code=401, detail="Token inválido")
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Token inválido")
+
+    usuario = db.query(models.Usuario).filter(models.Usuario.id == int(user_id)).first()
+    if usuario is None:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+    return usuario

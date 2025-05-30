@@ -1,16 +1,21 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, status
 from sqlalchemy.orm import Session
 from typing import List
 
-from Backend.models import Producto
+from Backend.models import Producto, Usuario
 from Backend.database import get_db
 from Backend.schemas import SCHproducto
+from Backend.routers.oauth import obtener_usuario_actual
 
 router = APIRouter()
 
 #Crear producto
 @router.post("/", response_model=SCHproducto.ProductoResponse)
-def crear_producto(producto: SCHproducto.ProductoCreate, db: Session = Depends(get_db)):
+def crear_producto(producto: SCHproducto.ProductoCreate, db: Session = Depends(get_db), 
+                   usuario_actual : Usuario = Depends(obtener_usuario_actual)):
+    if not usuario_actual.rol:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="No tienes permiso para agregar productos")
+
     nuevo_produco = Producto(**producto.dict())
     db.add(nuevo_produco)
     db.commit()
@@ -32,8 +37,12 @@ def obtener_producto(producto_id:int, db:Session=Depends(get_db)):
 
 #actualizar producto
 @router.put("/{producto_id}", response_model=SCHproducto.ProductoResponse)
-def actualizar_producto(producto_id: int,producto_actualizado: SCHproducto.ProductoUpdate , db: Session=Depends(get_db)):
+def actualizar_producto(producto_id: int,producto_actualizado: SCHproducto.ProductoUpdate , db: Session=Depends(get_db),
+                   usuario_actual: Usuario = Depends(obtener_usuario_actual)):
+    if not usuario_actual.rol:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="No tienes permiso para agregar productos")
     producto = db.query(Producto).filter(Producto.id == producto_id).first()
+    
     if not producto:
         raise HTTPException(status_code=404, detail="Producto no encontrado")
     
@@ -45,7 +54,10 @@ def actualizar_producto(producto_id: int,producto_actualizado: SCHproducto.Produ
 
 #eliminar producto
 @router.delete("/{producto_id}")
-def eliminar_producto(producto_id: int, db: Session=Depends(get_db)):
+def eliminar_producto(producto_id: int, db: Session=Depends(get_db),
+                      usuario_actual: Usuario=Depends(obtener_usuario_actual)):
+    if not usuario_actual.rol:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="No tienes permiso para agregar productos")
     producto = db.query(Producto).filter(Producto.id == producto_id).first()
     if not producto:
         raise HTTPException(status_code=404, detail="Producto no encontrado")
