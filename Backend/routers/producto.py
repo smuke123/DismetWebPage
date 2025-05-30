@@ -58,6 +58,7 @@ def eliminar_producto(producto_id: int, db: Session=Depends(get_db),
                       usuario_actual: Usuario=Depends(obtener_usuario_actual)):
     if not usuario_actual.rol:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="No tienes permiso para agregar productos")
+    
     producto = db.query(Producto).filter(Producto.id == producto_id).first()
     if not producto:
         raise HTTPException(status_code=404, detail="Producto no encontrado")

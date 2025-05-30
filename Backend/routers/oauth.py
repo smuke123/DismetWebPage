@@ -81,7 +81,7 @@ async def google_callback(code: str, db: Session = Depends(get_db)):
         db.commit() 
         db.refresh(nuevo_usuario)
 
-    user_token = jwt.encode({"sub": user_email}, SECRET_KEY, algorithm=ALGORITHM)
+    user_token = jwt.encode({"sub": str(db_user.id)}, SECRET_KEY, algorithm=ALGORITHM)
 
     return {"access_token": user_token, "email": user_email, "name": user_name}
 
