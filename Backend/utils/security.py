@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from jose import jwt
+from jose import jwt # type: ignore
 from passlib.context import CryptContext
 
 #Funciones para verificar la contraseña de forma segura

@@ -3,15 +3,14 @@ from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import Security
-from jose import jwt, JWTError
+from jose import jwt, JWTError # type: ignore
 import httpx
 import os
 from dotenv import load_dotenv
 from sqlalchemy.orm import Session
 from Backend.database import get_db
 from Backend import models
-from Backend.schemas.pydantic import LoginRequest
-from Backend.utils.security import hash_password, verify_password, create_access_token
+from Backend.utils.security import verify_password, create_access_token
 
 load_dotenv()
 
