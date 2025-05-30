@@ -14,7 +14,7 @@ const Arrived = () => {
             <p className="my-4">
               Etiquétanos @ en tus fotos de Instagram para salir en esta sección.
             </p>
-            <Link
+            <a
               className="border bg-accent rounded-full text-white px-4 py-2"
               to={"instagram.com"}
             >
