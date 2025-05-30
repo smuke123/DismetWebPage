@@ -26,7 +26,7 @@ const LoginForm = () => {
     localStorage.setItem("token", data.access_token);
 
     // Redirigir al usuario a donde quieras, por ejemplo /dashboard
-    window.location.href = "/dashboard";
+    window.location.href = "/";
     };
 
   return (

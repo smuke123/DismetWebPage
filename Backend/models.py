@@ -12,7 +12,7 @@ class Usuario(Base):
     direccion = Column(String(200))
     telefono = Column(String(20))
     contrasena = Column(String(100), nullable=True)
-    rol = Column(Boolean, nullable=False, default=False)
+    rol = Column(Boolean, nullable=False, default=False) # 0 = cliente 1= admin
 
 class Producto(Base):
     __tablename__ = "Producto"
