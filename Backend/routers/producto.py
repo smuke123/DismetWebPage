@@ -70,7 +70,7 @@ def eliminar_producto(producto_id: int, db: Session=Depends(get_db),
 def comprar_producto(producto_id: int, cantidad: int, 
                      db: Session = Depends(get_db),
                      usuario_actual: Usuario = Depends(obtener_usuario_actual)):
-   #Para realizar una compra, el usuario debe exisitir y estar registrado 
+   #Para realizar una compra, el usuario debe exisitir y estar registrador 
     producto = db.query(Producto).filter(Producto.id == producto_id).first()
     if not producto:
         raise HTTPException(status_code=404, detail="Producto no encontrado")

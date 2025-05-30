@@ -40,13 +40,6 @@ def crear_usuario(usuario: SCHusuario.UsuarioCreate, db: Session = Depends(get_d
 def obtener_usuarios(db: Session = Depends(get_db)):
     return db.query(Usuario).all()
 
-# Obtener usuario por ID
-#@router.get("/{usuario_id}", response_model=SCHusuario.UsuarioResponse)
-#def obtener_usuario(usuario_id: int, db: Session = Depends(get_db)):
- #   usuario = db.query(Usuario).filter(Usuario.id == usuario_id).first()
-  #  if not usuario:
-   #     raise HTTPException(status_code=404, detail="Usuario no encontrado")
-    #return usuario
 
 #eliminar un Usuario
 @router.delete("/{usuario_id}")
