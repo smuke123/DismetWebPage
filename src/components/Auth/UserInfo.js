@@ -38,14 +38,39 @@ const UserInfo = () => {
   }
 
   return (
-    <div className="p-4 text-left">
-      <h2 className="text-xl font-bold mb-4">Hola, {user.nombre || user.correo}</h2>
-      <p><strong>Correo:</strong> {user.correo}</p>
-      <p><strong>ID:</strong> {user.id}</p>
-      <p><strong>Username:</strong> {user.username}</p>
-      <p><strong>Dirección:</strong> {user.direccion}</p>
-      <p><strong>Teléfono:</strong> {user.telefono}</p>
-      <p><strong>Rol:</strong> {user.rol ? "Admin" : "Usuario"}</p>
+    <div className="bg-white/80 backdrop-blur-md rounded-xl shadow-xl p-6 border border-white/20 text-gray-800 space-y-4">
+      <h2 className="text-2xl font-bold text-center mb-4">
+        ¡Bienvenido, {user.nombre || user.username || user.correo}!
+      </h2>
+
+      <div className="text-sm space-y-2">
+        <div className="flex justify-between">
+          <span className="font-medium text-gray-600">Correo:</span>
+          <span>{user.correo}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="font-medium text-gray-600">ID:</span>
+          <span>{user.id}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="font-medium text-gray-600">Username:</span>
+          <span>{user.username}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="font-medium text-gray-600">Dirección:</span>
+          <span>{user.direccion || "No registrada"}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="font-medium text-gray-600">Teléfono:</span>
+          <span>{user.telefono || "No registrado"}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="font-medium text-gray-600">Rol:</span>
+          <span className="font-semibold">
+            {user.rol ? "Administrador" : "Usuario"}
+          </span>
+        </div>
+      </div>
 
       <button
         onClick={() => {
