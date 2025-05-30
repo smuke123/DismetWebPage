@@ -9,4 +9,4 @@ mysql-connector-python
 python-dotenv
 stripe
 python-jose[cryptography]
-hhttpx
+httpx

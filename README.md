@@ -60,18 +60,25 @@ Disfruta de la pagina:
   cd DismetWebPage/Backend
 ```
 
-(opcional) Crea y activa un entorno virtual
+(Entorno Linux) Crea y activa un entorno virtual
 ```bash
   python -m venv venv
   source venv/bin/activate  # En Windows: venv\Scripts\activate
 ```
+
+(Entorno Windows) Crea y activa un entorno virtual
+```bash
+  python -m venv venv
+  venv\Scripts\activate
+```
+
 instala las dependencias necesarias:
 ```bash
   pip install -r requirements.txt
 ```
 Ejecuta el servidor de desarrollo:
 ```bash
-  uvicorn main:app --reload #backend corriendo en localhost:8000
+  uvicorn Backend.main:app --reload #backend corriendo en localhost:8000
 ```
 
 ## 👥 Autores
